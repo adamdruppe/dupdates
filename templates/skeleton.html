@@ -16,5 +16,12 @@
 		<a href="/recent-comments">Recent Comments</a>
 	</nav>
 	<main></main>
+
+<script>
+	var dates = document.querySelectorAll(".date");
+	for (var i = 0; i < dates.length; i++)
+	dates[i].textContent = new Date(dates[i].textContent + ":00").toLocaleString(); 
+</script>
+
 </body>
 </html>

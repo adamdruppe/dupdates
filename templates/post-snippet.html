@@ -1,0 +1,14 @@
+<div id="comment-<%=post.id%>" class="post">
+	<b><%= post.author %></b>
+	<a class="date obscure" href="<%=post.link%>"><%= post.date %></a>
+	<div>
+	<%=HTML post.content.rendered %>
+	</div>
+	<if-true cond="post.parentSnippet">
+		<blockquote><%= post.parentSnippet %></blockquote>
+	</if-true>
+	<or-else>
+		<a href="<%=post.link%>"><%= (post.commentCount == 1) ? "1 comment":"#{post.commentCount} comments" %></a>
+	</or-else>
+</div>
+

@@ -10,7 +10,7 @@ import std.conv;
 /+
 	FIXME: XSRF
 
-	6) posts by hashtag and posts by user
+	listing of posts by user not done
 +/
 
 bool isIdentifierChar(char c) {

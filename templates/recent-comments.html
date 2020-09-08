@@ -1,13 +1,6 @@
 <main>
 	<for-each over="data.items" as="post">
-	<div class="post">
-		<b><%= post.author %></b>
-		<a class="date obscure" href="<%=post.link%>"><%= post.date[0 .. 19] %></a>
-		<div>
-		<%=HTML post.content.rendered %>
-		</div>
-		<blockquote><%= post.parentSnippet %></blockquote>
-	</div>
+		<render-template file="post-snippet.html" />
 	</for-each>
 	<if-true cond="data.nextPageUrl">
 		<a href="<%= data.nextPageUrl %>">Next Page</a>
