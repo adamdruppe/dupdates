@@ -1,0 +1,40 @@
+main {
+	max-width: 78ch;
+	margin: 1em auto;
+}
+
+.obscure {
+	text-decoration: inherit;
+	color: inherit;
+	font-weight: inherit;
+}
+
+.obscure:hover {
+	text-decoration: underline;
+}
+
+.post > .date {
+	font-size: small;
+}
+
+.label-text {
+	display: block;
+}
+
+textarea {
+	width: 70ch;
+	height: 8em;
+}
+
+.post {
+	margin-bottom: 2em;
+}
+
+.post > div {
+	margin: 1em;
+}
+
+.field > label > span {
+	display: block;
+	font-weight: bold;
+}

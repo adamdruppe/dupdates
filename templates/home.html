@@ -1,0 +1,54 @@
+<main>
+	<p>This website is meant to be something between a chat and a blog post. You talk about stuff you are doing without the expected effort of a blog post, but also without the expected real-time answer of a chatroom.</p>
+
+	<p>Just write a few words (or more if you feel like it) about what you are doing or thinking about doing with D! Don't worry if you talk about something that goes nowhere, this is just a brainstream from the D community.</p>
+
+	<hr />
+
+	<h2>Post your own update</h2>
+	<form method="POST" action="/posts">
+		<if-true cond="user == 0">
+			<p>You will be automatically logged in if already registered, or automatically registered if not.</p>
+			<p>The registration is just to help search and to give you edit and me a bit of spam control. You should just use a random password you don't mind losing if it leaks; this website is probably not secure. Let your browser remember it for convenience.</p>
+			<p>The email address is not currently used but might be later for emailed updates or something. Totally optional.</p>
+			<div class="field">
+				<label><span>Username:</span>
+					<input type="text" name="username" /></label>
+			</div>
+			<div class="field">
+				<label><span>Password:</span>
+					<input type="password" name="password" /></label>
+			</div>
+			<div class="field">
+				<label><span>E-mail (optional, leave blank if already registered):</span>
+					<input type="email" name="email" /></label>
+			</div>
+			<div class="field">
+				<p>D Programming Language. Put those words in the following box to pass my primitive captcha.</p>
+				<label><span>Captcha:</span>
+					<input type="text" name="dlang" /></label>
+			</div>
+		</if-true>
+		<div class="field">
+			<label><span>Post</span>
+				<textarea name="content"></textarea></label>
+		</div>
+		<button type="submit">Post</button>
+	</form>
+
+	<h2 id="recent-updates">Recent updates</h2>
+
+	<for-each over="data.items" as="post">
+	<div class="post">
+		<b><%= post.author %></b>
+		<a class="date obscure" href="<%=post.link%>"><%= post.date[0 .. 19] %></a>
+		<div>
+		<%=HTML post.content.rendered %>
+		</div>
+		<a href="<%=post.link%>"><%= (post.commentCount == 1) ? "1 comment":"#{post.commentCount} comments" %></a>
+	</div>
+	</for-each>
+	<if-true cond="data.nextPageUrl">
+		<a href="<%= data.nextPageUrl %>">Next Page</a>
+	</if-true>
+</main>
